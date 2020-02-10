@@ -1,0 +1,51 @@
+<form (ngSubmit)="save()" [formGroup]="customerForm">
+    <div>
+        <label for="likeProgrammingId">How much I like programming </label>
+        <input id="likeProgrammingId" type="number" placeholder="rate"
+        formControlName="likeProgramming"/>
+    </div>
+    <span>&nbsp;</span>
+    <div>
+        <label for="waysProgrammingId">Ways in which I like programming </label>
+        <input id="waysProgrammingId"
+                 minlength="3" 
+                 type="text" 
+                 placeholder="ways"
+                [ngClass]="{'is-invalid': (customerForm.get('waysProgramming').touched || customerForm.get('waysProgramming').dirty) && !customerForm.get('waysProgramming').valid }" 
+                formControlName="waysProgramming"/>
+        <span class="invalid-feedback">
+            <span *ngIf="customerForm.get('waysProgramming').errors?.required">
+              Please enter a way like enjoy.
+            </span>
+            <span *ngIf="customerForm.get('waysProgramming').errors?.minlength">
+              The Ways you enjoy must be longer than 3 characters.
+            </span>
+          </span>
+    </div>
+    <span>&nbsp;</span>
+    <div class="form-group row mb-2">
+        <div class="offset-md-2 col-md-4">
+          <button class="btn btn-primary mr-3"
+                  type="submit"
+                  style="width:80px"
+                  [title]="customerForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
+                  [disabled]="!customerForm.valid">
+            Save
+          </button>
+          <!-- <button class="btn btn-outline-secondary"
+                  type="button"
+                  (click)="populateTestData()">
+            Test Data
+          </button> -->
+        </div>
+      </div>
+</form>
+
+
+<!-- 
+<br>Dirty: {{ customerForm.dirty }}
+<br>Touched: {{ customerForm.touched }}
+<br>Valid: {{ customerForm.valid }}
+<br>Value: {{ customerForm.value | json }}
+
+<br>&nbsp; -->
