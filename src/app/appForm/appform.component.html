@@ -1,5 +1,11 @@
 <form (ngSubmit)="save()" [formGroup]="customerForm">
-    <div>
+  <div>
+    <label for="newId">coins </label>
+    <input id="newId" type="text" placeholder="some coin"
+    formControlName="newStuff"/>
+</div>
+<span>&nbsp;</span> 
+  <div>
         <label for="likeProgrammingId">How much I like programming </label>
         <input id="likeProgrammingId" type="number" placeholder="rate"
         formControlName="likeProgramming"/>

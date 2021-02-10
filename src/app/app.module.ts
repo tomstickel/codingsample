@@ -11,11 +11,17 @@ import { AppFormComponent } from './appForm/appform.component';
 import { HttpClientModule } from '@angular/common/http';
 
 import { HttpService} from './appForm/appform.service';
+import { BlahComponent } from './blah/blah.component';
+import { CoreComponent } from './core/core.component';
+import { SkynetComponent } from './core/skynet/skynet.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AppFormComponent
+    AppFormComponent,
+    BlahComponent,
+    CoreComponent,
+    SkynetComponent
   ],
   imports: [
     BrowserModule,

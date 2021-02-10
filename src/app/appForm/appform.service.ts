@@ -16,5 +16,8 @@ export class  HttpService {
     public getLike(): string {
         return "Numerical input has been changed";
     }
-
+    
+    public getNew(): string {
+        return "coin is ";
+    }
 }

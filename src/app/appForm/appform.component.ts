@@ -18,6 +18,7 @@ export class AppFormComponent implements OnInit {
 
     public data: string;
     public like: string;
+    public newC: string;
 
     private validationMessages = {
         required: 'Please enter your favorite way...',
@@ -38,7 +39,7 @@ export class AppFormComponent implements OnInit {
         this.customerForm = this.fb.group({
             likeProgramming: 0,
             waysProgramming: ['', [Validators.required, Validators.minLength(3)]],
-            
+            newStuff: '',
             
         });
       
@@ -48,7 +49,16 @@ export class AppFormComponent implements OnInit {
             this.getLike(val);
         });
     
+        this.customerForm.get('newStuff').valueChanges.subscribe(val => {
+            this.getNew(val);
+        });
     }
+
+    public getNew(v): void {
+        this.newC = this._HttpService.getNew();
+        console.log(this.newC + " : " + v);
+    }
+
 
     public getLike(v): void {
         this.like = this._HttpService.getLike();
